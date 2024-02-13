@@ -1,6 +1,6 @@
 package org.example.exception;
 
-public class MyCustomException extends Exception{
+public class MyCustomException {
     private String errorMessage;
 
     public MyCustomException(String errorMessage) {
