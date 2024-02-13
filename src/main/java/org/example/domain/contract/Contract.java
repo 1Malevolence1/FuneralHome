@@ -1,6 +1,7 @@
 package org.example.domain.contract;
 
-import org.example.domain.person.Customers;
+import org.example.domain.person.Customer;
+
 import org.example.domain.person.Staff;
 import org.example.domain.person.TheDeadMen;
 import org.example.domain.service.Service;
@@ -10,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contract {
-    private Customers customers;
-    private Staff staff;
+    private Customer customer;
+
     private TheDeadMen theDeadMen;
     private List<Service> services;
 
@@ -30,20 +31,12 @@ public class Contract {
         services.add(service);
     }
 
-    public Customers getCustomers() {
-        return customers;
+    public Customer getCustomers() {
+        return customer;
     }
 
-    public void setCustomers(Customers customers) {
-        this.customers = customers;
-    }
-
-    public Staff getStaff() {
-        return staff;
-    }
-
-    public void setStaff(Staff staff) {
-        this.staff = staff;
+    public void setCustomers(Customer customers) {
+        this.customer = customers;
     }
 
     public TheDeadMen getTheDeadMen() {

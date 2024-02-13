@@ -1,10 +1,10 @@
 package org.example.domain.person;
 
-public class Customers extends Person {
+public class Customer extends Person {
     private String address;
     private String email;
 
-    public Customers(String surname, String name, String patronymic, String telephone, String address, String email) {
+    public Customer(String surname, String name, String patronymic, String telephone, String address, String email) {
         super(surname, name, patronymic, telephone);
         this.address = address;
         this.email = email;
