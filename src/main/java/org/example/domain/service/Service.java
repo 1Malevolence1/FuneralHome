@@ -1,4 +1,4 @@
-package org.example.domen.service;
+package org.example.domain.service;
 
 public class Service {
     private String nameService;

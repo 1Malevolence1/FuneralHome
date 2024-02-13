@@ -1,4 +1,4 @@
-package org.example.domen.person;
+package org.example.domain.person;
 
 import java.time.LocalDate;
 

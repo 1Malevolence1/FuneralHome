@@ -1,6 +1,4 @@
-package org.example.domen.person;
-
-import jdk.vm.ci.meta.Local;
+package org.example.domain.person;
 
 import java.time.LocalDate;
 

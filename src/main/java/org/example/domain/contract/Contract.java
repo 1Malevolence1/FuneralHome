@@ -1,14 +1,13 @@
-package org.example.domen.contract;
+package org.example.domain.contract;
 
-import org.example.domen.person.Customers;
-import org.example.domen.person.Staff;
-import org.example.domen.person.TheDeadMen;
-import org.example.domen.service.Service;
+import org.example.domain.person.Customers;
+import org.example.domain.person.Staff;
+import org.example.domain.person.TheDeadMen;
+import org.example.domain.service.Service;
 import sun.util.resources.LocaleData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Contract {
     private Customers customers;

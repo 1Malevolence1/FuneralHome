@@ -1,6 +1,6 @@
-package org.example.domen.service;
+package org.example.domain.service;
 
-import org.example.domen.contract.Contract;
+import org.example.domain.contract.Contract;
 
 import java.util.List;
 
