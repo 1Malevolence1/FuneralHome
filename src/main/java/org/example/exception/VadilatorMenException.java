@@ -1,11 +1,9 @@
 package org.example.exception;
 
-import java.awt.*;
-
-public class TheDeadMenException extends Exception {
+public class VadilatorMenException extends Exception {
     private String errorMessage;
 
-    public TheDeadMenException(String errorMessage) {
+    public VadilatorMenException(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 

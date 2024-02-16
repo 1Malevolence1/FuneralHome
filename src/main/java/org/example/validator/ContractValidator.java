@@ -1,9 +1,8 @@
 package org.example.validator;
 
-import org.example.answer.AnswerCustomers;
 import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
-import org.example.exception.TheDeadMenException;
+import org.example.exception.VadilatorMenException;
 
 public class ContractValidator {
     private CustomersValidator customersValidator;
@@ -16,7 +15,7 @@ public class ContractValidator {
         this.theDeadMenValidator = new TheDeadMenValidator();
     }
 
-    private AnswerTheDeadMen checkTheDeadMen(Contract contract) throws TheDeadMenException {
+    private AnswerTheDeadMen checkTheDeadMen(Contract contract) throws VadilatorMenException {
             return theDeadMenValidator.check(contract);
     }
 

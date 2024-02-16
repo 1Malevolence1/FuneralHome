@@ -1,8 +1,7 @@
 package org.example.validator;
 
-import org.example.domain.contract.Contract;
 import org.example.domain.person.Person;
-import org.example.exception.TheDeadMenException;
+import org.example.exception.VadilatorMenException;
 
 public class FIOValidator {
 
@@ -13,7 +12,7 @@ public class FIOValidator {
 
     }
 
-    public FIOValidator getFIOValidator() throws TheDeadMenException {
+    public FIOValidator getFIOValidator() throws VadilatorMenException {
         FIOValidator fioValidator = new FIOValidator(person);
 
         try {
@@ -23,7 +22,7 @@ public class FIOValidator {
                     checkPatronymic(person.getPatronymic())) {
                 return fioValidator;
             }
-        }catch (TheDeadMenException e) {
+        }catch (VadilatorMenException e) {
             System.out.println(e.getErrorMessage());
         }
 
@@ -31,20 +30,20 @@ public class FIOValidator {
     }
 
 
-    public boolean checkName(String name) throws TheDeadMenException {
+    public boolean checkName(String name) throws VadilatorMenException {
         if (!name.matches(".*\\d.*")) return true;
-        else throw new TheDeadMenException("Ошибка в именни");
+        else throw new VadilatorMenException("Ошибка в именни");
     }
 
 
-    public boolean checkSurname(String surname) throws TheDeadMenException {
+    public boolean checkSurname(String surname) throws VadilatorMenException {
         if (!surname.matches(".*\\d.*")) return true;
-        else throw new TheDeadMenException("Ошибка в фамилии");
+        else throw new VadilatorMenException("Ошибка в фамилии");
     }
 
 
-    public boolean checkPatronymic(String patronymic) throws TheDeadMenException {
+    public boolean checkPatronymic(String patronymic) throws VadilatorMenException {
         if (!patronymic.matches(".*\\d.*")) return true;
-        else throw new TheDeadMenException("Ошибка в отчестве");
+        else throw new VadilatorMenException("Ошибка в отчестве");
     }
 }

@@ -1,18 +1,23 @@
 package org.example;
 
 import org.example.domain.contract.Contract;
+import org.example.domain.email.Email;
 import org.example.domain.person.Customer;
 import org.example.domain.person.Staff;
 import org.example.domain.person.TheDeadMen;
+import org.example.validator.EmailValidator;
 
 import java.time.LocalDate;
 
 public class TestBuilderContract {
     public static void main(String[] args) {
-
+       /* System.out.println(testBuildGood().getTheDeadMen().getDateOfBirthday());*/
+        String text = "123.133.13";
+        System.out.println(text.replace(".",""));
+        System.out.println(text.replace("."," "));
     }
 
-    public Contract testBuildGood() {
+    public static Contract testBuildGood() {
         Contract contract = new Contract();
 
         Customer customer = new Customer(
@@ -20,9 +25,7 @@ public class TestBuilderContract {
                 "Александр",
                 "Арсентьевич",
                 "+7 (977) 967-95-18",
-                "Ромашка",
-                "roupoucoffoiddou-9566@yopmail.com"
-
+                new Email("roupoucoffoiddou", "@mail", "ru")
         );
 
         contract.setCustomers(customer);
@@ -62,8 +65,7 @@ public class TestBuilderContract {
                 "Александр",
                 "Арсентьевич",
                 "+7 (977) 967-95-18",
-                "Ромашка",
-                "roupoucoffoiddou-9566@yopmail.com"
+                new Email("roupoucoffoiddou", "@mail", "ru")
 
         );
 

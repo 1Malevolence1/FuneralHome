@@ -1,28 +1,21 @@
 package org.example.domain.person;
 
+import org.example.domain.email.Email;
+
 public class Customer extends Person {
-    private String address;
-    private String email;
+    private Email email;
 
-    public Customer(String surname, String name, String patronymic, String telephone, String address, String email) {
+    public Customer(String surname, String name, String patronymic, String telephone, Email email) {
         super(surname, name, patronymic, telephone);
-        this.address = address;
         this.email = email;
+
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 }
