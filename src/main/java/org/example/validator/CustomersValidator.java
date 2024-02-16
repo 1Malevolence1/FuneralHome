@@ -1,19 +1,21 @@
 package org.example.validator;
 
+import org.example.answer.AnswerCustomers;
 import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
 import org.example.exception.VadilatorMenException;
+import org.example.validator.email.EmailValidator;
 
 public class CustomersValidator implements Validator {
     @Override
-    public Object check(Contract contract) throws VadilatorMenException {
-        FIOValidator fioValidator = new FIOValidator(contract.getTheDeadMen());
+    public AnswerCustomers check(Contract contract) throws VadilatorMenException {
+        FIOValidator fioValidator = new FIOValidator(contract.getCustomers());
         EmailValidator emailValidator = new EmailValidator(contract.getCustomers().getEmail());
 
         if(fioValidator.getFIOValidator() != null && emailValidator.testEmail()){
-            AnswerTheDeadMen answerTheDeadMen = new AnswerTheDeadMen();
-            answerTheDeadMen.setContract(contract);
-            return answerTheDeadMen;
+            AnswerCustomers answerAnswerCustomers = new AnswerCustomers();
+           answerAnswerCustomers.setContract(contract);
+            return answerAnswerCustomers;
         }
         else return null;
     }

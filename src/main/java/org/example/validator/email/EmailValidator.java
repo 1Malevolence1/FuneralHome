@@ -1,4 +1,4 @@
-package org.example.validator;
+package org.example.validator.email;
 
 import org.example.domain.email.Email;
 import org.example.exception.VadilatorMenException;
@@ -13,7 +13,7 @@ public class EmailValidator {
         this.email = email;
     }
 
-
+    // Добавлять новые расширения сюда, и вносить их в метод completedDictionary()
     private enum EmailExtension {
         ru, com
     }
@@ -40,9 +40,13 @@ public class EmailValidator {
 
 
     private boolean testDomainAndExtension(String domain, String extension) {
-        StringBuilder stringBuilder = new StringBuilder();
 
-        ArrayList domains = completedDictionary().get(extension);
+        HashMap<String, ArrayList<String>> dictionary = completedDictionary();
+
+        ArrayList<String> domains = dictionary.get(extension);
+        if (domains == null) {
+            return false;
+        }
 
         for (int index = 0; index < domains.size(); index++) {
             if (domains.get(index).equals(domain)) return true;
@@ -51,8 +55,10 @@ public class EmailValidator {
         return false;
     }
 
-    private HashMap<String, ArrayList> completedDictionary() {
-        HashMap<String, ArrayList> domain = new HashMap<>();
+
+
+    private HashMap<String, ArrayList<String>> completedDictionary() {
+        HashMap<String, ArrayList<String>> domain = new HashMap<>();
 
         ArrayList<String> domainRu = new ArrayList<>(List.of("@mail", "@yandex"));
         ArrayList<String> domainCom = new ArrayList<>(List.of("@gmail"));

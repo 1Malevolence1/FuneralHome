@@ -3,9 +3,7 @@ package org.example;
 import org.example.domain.contract.Contract;
 import org.example.domain.email.Email;
 import org.example.domain.person.Customer;
-import org.example.domain.person.Staff;
 import org.example.domain.person.TheDeadMen;
-import org.example.validator.EmailValidator;
 
 import java.time.LocalDate;
 
@@ -25,7 +23,7 @@ public class TestBuilderContract {
                 "Александр",
                 "Арсентьевич",
                 "+7 (977) 967-95-18",
-                new Email("roupoucoffoiddou", "@mail", "ru")
+                new Email("roupoucoffoiddou", "@mail", ".ru")
         );
 
         contract.setCustomers(customer);
@@ -61,8 +59,8 @@ public class TestBuilderContract {
         Contract contract = new Contract();
 
         Customer customer = new Customer(
-                "Потапов",
-                "Александр",
+                "Потапов.",
+                "Александр!",
                 "Арсентьевич",
                 "+7 (977) 967-95-18",
                 new Email("roupoucoffoiddou", "@mail", "ru")

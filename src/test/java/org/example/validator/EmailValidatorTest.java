@@ -2,6 +2,7 @@ package org.example.validator;
 
 import org.example.domain.email.Email;
 import org.example.exception.VadilatorMenException;
+import org.example.validator.email.EmailValidator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
