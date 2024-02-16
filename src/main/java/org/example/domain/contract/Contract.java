@@ -2,10 +2,12 @@ package org.example.domain.contract;
 
 import org.example.domain.person.Customer;
 
-import org.example.domain.person.Staff;
+
 import org.example.domain.person.TheDeadMen;
 import org.example.domain.service.Service;
-import sun.util.resources.LocaleData;
+
+
+import java.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class Contract {
     private TheDeadMen theDeadMen;
     private List<Service> services;
 
-    private LocaleData dateConclusionContract;
+    private LocalDate dateConclusionContract;
     private Double totalAmountForServices;
 
 
@@ -55,11 +57,11 @@ public class Contract {
         this.services = services;
     }
 
-    public LocaleData getDateConclusionContract() {
+    public LocalDate getDateConclusionContract() {
         return dateConclusionContract;
     }
 
-    public void setDateConclusionContract(LocaleData dateConclusionContract) {
+    public void setDateConclusionContract(LocalDate dateConclusionContract) {
         this.dateConclusionContract = dateConclusionContract;
     }
 
