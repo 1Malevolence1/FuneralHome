@@ -5,6 +5,7 @@ import org.example.domain.email.Email;
 import org.example.domain.person.Customer;
 import org.example.domain.person.TheDeadMen;
 import org.example.exception.VadilatorMenException;
+import org.example.validator.contract.ContractValidator;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

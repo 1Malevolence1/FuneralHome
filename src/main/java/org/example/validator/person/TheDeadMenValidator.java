@@ -1,11 +1,12 @@
-package org.example.validator;
+package org.example.validator.person;
 
 import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
 import org.example.domain.person.TheDeadMen;
 import org.example.exception.VadilatorMenException;
+import org.example.validator.Validator;
 
-public class TheDeadMenValidator implements  Validator {
+public class TheDeadMenValidator implements Validator {
 
 
     @Override

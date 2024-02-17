@@ -1,4 +1,4 @@
-package org.example.validator;
+package org.example.validator.person;
 
 import org.example.domain.person.Person;
 import org.example.exception.VadilatorMenException;

@@ -1,9 +1,12 @@
-package org.example.validator;
+package org.example.validator.contract;
 
 import org.example.answer.AnswerCustomers;
 import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
 import org.example.exception.VadilatorMenException;
+import org.example.validator.person.CustomersValidator;
+import org.example.validator.person.TheDeadMenValidator;
+import org.example.validator.service.ServiceValidator;
 
 public class ContractValidator {
     private CustomersValidator customersValidator;

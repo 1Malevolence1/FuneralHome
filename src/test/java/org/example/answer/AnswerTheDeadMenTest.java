@@ -1,10 +1,9 @@
 package org.example.answer;
 
-import org.example.TestBuilderContract;
 import org.example.domain.contract.Contract;
 import org.example.domain.person.TheDeadMen;
 import org.example.exception.VadilatorMenException;
-import org.example.validator.TheDeadMenValidator;
+import org.example.validator.person.TheDeadMenValidator;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

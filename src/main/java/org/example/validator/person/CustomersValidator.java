@@ -1,9 +1,9 @@
-package org.example.validator;
+package org.example.validator.person;
 
 import org.example.answer.AnswerCustomers;
-import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
 import org.example.exception.VadilatorMenException;
+import org.example.validator.Validator;
 import org.example.validator.email.EmailValidator;
 
 public class CustomersValidator implements Validator {

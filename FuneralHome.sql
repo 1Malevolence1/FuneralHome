@@ -20,7 +20,6 @@ CREATE TABLE Customers(
     surname varchar(25)  NOT NULL,
     name varchar(25)  NOT NULL,
     patronymic varchar(25)  NOT NULL,
-    address varchar(25)  NOT NULL,
     telephone varchar(25)  NOT NULL,
     email varchar(50)  NOT NULL
 );
