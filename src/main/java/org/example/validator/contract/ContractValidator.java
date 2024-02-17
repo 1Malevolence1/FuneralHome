@@ -25,6 +25,7 @@ public class ContractValidator {
 
             AnswerTheDeadMen answerTheDeadMen = checkTheDeadMen(contract);
             AnswerCustomers answerCustomers = checkCustomers(contract);
+            // проверку на Service нужно добавить
 
             if(answerCustomers != null && answerTheDeadMen != null){
                 return contract;
