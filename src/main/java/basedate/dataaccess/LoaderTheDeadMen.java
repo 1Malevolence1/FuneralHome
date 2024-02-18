@@ -21,16 +21,22 @@ public class LoaderTheDeadMen  implements Loader{
 
             try(PreparedStatement stmt = connection.prepareStatement(REQUEST)) {
 
-                stmt.setString(1, contract.getTheDeadMen().getSurname());
-                stmt.setString(2, contract.getTheDeadMen().getName());
-                stmt.setString(3, contract.getTheDeadMen().getPatronymic());
-                stmt.setDate(4, Date.valueOf(contract.getTheDeadMen().getDateOfBirthday()));
-                stmt.setDate(5, Date.valueOf(contract.getTheDeadMen().getDateOfDead()));
+                if(contract.getTheDeadMen() != null) {
 
-                stmt.executeUpdate();
+                    stmt.setString(1, contract.getTheDeadMen().getSurname());
+                    stmt.setString(2, contract.getTheDeadMen().getName());
+                    stmt.setString(3, contract.getTheDeadMen().getPatronymic());
+                    stmt.setDate(4, Date.valueOf(contract.getTheDeadMen().getDateOfBirthday()));
+                    stmt.setDate(5, Date.valueOf(contract.getTheDeadMen().getDateOfDead()));
 
-            }catch (SQLException e){
-                throw new ValidatorDataBase("Ошибка занесения данных покойника");
+                    stmt.executeUpdate();
+                }
+
+                else throw new ValidatorDataBase("Ошибка занесения данных покойника");
+
+            }
+            catch (SQLException e) {
+                throw new RuntimeException(e);
             }
     }
 }

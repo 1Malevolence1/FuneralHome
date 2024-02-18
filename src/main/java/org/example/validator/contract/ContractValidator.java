@@ -1,5 +1,6 @@
 package org.example.validator.contract;
 
+import org.example.answer.AnswerContract;
 import org.example.answer.AnswerCustomers;
 import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
@@ -20,11 +21,12 @@ public class ContractValidator {
     }
 
     public Contract checkAll(Contract contract) throws VadilatorMenException {
-
         try {
 
-            AnswerTheDeadMen answerTheDeadMen = checkTheDeadMen(contract);
+
             AnswerCustomers answerCustomers = checkCustomers(contract);
+            AnswerTheDeadMen answerTheDeadMen = checkTheDeadMen(contract);
+
             // проверку на Service нужно добавить
 
             if(answerCustomers != null && answerTheDeadMen != null){
@@ -37,6 +39,7 @@ public class ContractValidator {
         return null;
     }
 
+
     private AnswerTheDeadMen checkTheDeadMen(Contract contract) throws VadilatorMenException {
             return theDeadMenValidator.check(contract);
     }
@@ -44,5 +47,7 @@ public class ContractValidator {
     private AnswerCustomers checkCustomers(Contract contract) throws VadilatorMenException{
         return customersValidator.check(contract);
     }
+
+
 
 }
