@@ -7,8 +7,6 @@ import org.example.validator.contract.ContractValidator;
 
 public class AnswerContract {
 
-    private Contract contract;
-
 //    @TODO должнен будет получать объект откуда будут приходить данные
     public Contract getContract() throws VadilatorMenException {
         ContractValidator contractValidator = new ContractValidator();

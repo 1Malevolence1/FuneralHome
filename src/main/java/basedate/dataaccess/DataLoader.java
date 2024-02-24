@@ -1,6 +1,7 @@
 package basedate.dataaccess;
 
 import basedate.connect.BuilderConnecting;
+import basedate.dataaccess.service.LoaderService;
 import org.example.TestBuilderContract;
 import org.example.answer.AnswerContract;
 import org.example.answer.AnswerTheDeadMen;
@@ -14,39 +15,43 @@ import java.util.List;
 
 public class DataLoader {
 
-    public void loadTheDeadMen() throws VadilatorMenException, ValidatorDataBase, SQLException {
 
-        try {
-        LoaderTheDeadMen loaderTheDeadMen = new LoaderTheDeadMen();
-        loaderTheDeadMen.loader(getContract(), BuilderConnecting.getConnection());
-    }
-        catch (SQLException e){
-            throw new ValidatorDataBase("Не удалось загрусть данные покойника");
-        }
+
+    public void loaderService() throws SQLException {
+        LoaderService loaderService = new LoaderService();
+        loaderService.loaderService(BuilderConnecting.getConnection());
     }
 
-    public void loadCostumer() throws VadilatorMenException, ValidatorDataBase, SQLException {
-        AnswerContract answerContract = new AnswerContract();
+    public void loaderTheDeadMen() throws VadilatorMenException, ValidatorDataBase, SQLException {
+        loaderObject(getContract().getTheDeadMen());
+    }
+
+    public void loaderCostumer() throws VadilatorMenException, ValidatorDataBase, SQLException {
+        loaderObject(getContract().getCustomers());
+    }
+    private void loaderObject(Object object) throws VadilatorMenException, ValidatorDataBase, SQLException {
+
         try {
-            LoaderCustomer loaderCustomer = new LoaderCustomer();
-            loaderCustomer.loader(answerContract.getContract(), BuilderConnecting.getConnection());
+            Loader item = (Loader) object;
+            item.loader(getContract(), BuilderConnecting.getConnection());
         }
         catch (SQLException e){
-            throw new ValidatorDataBase("Не удалось загрусть данные клиента");
+            throw new ValidatorDataBase("не удалось загрузить данные: " + object.getClass().getName());
         }
     }
 
     public void loadAll() throws SQLException, VadilatorMenException, ValidatorDataBase {
-
-        loadTheDeadMen();
-        loadCostumer();
+                loaderTheDeadMen();
+                loaderCostumer();
     }
 
 
     private Contract getContract() throws VadilatorMenException {
-        AnswerContract answerContract = new AnswerContract();
+         AnswerContract answerContract = new AnswerContract();
         return answerContract.getContract();
     }
+
+
    /*
     private void loadsDataBase() throws SQLException, VadilatorMenException, ValidatorDataBase {
         for (Object index: implementationObjects()
@@ -75,8 +80,6 @@ public class DataLoader {
 */
 
 
-
-    // Получаем класс контракт
 
 
 
