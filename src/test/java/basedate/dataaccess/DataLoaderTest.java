@@ -14,12 +14,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DataLoaderTest {
     @Test
-    public void test() throws VadilatorMenException, SQLException, ValidatorDataBase {
+    public void testContract() throws VadilatorMenException, SQLException, ValidatorDataBase {
         Contract contract = TestBuilderContract.testBuildGood();
         ContractValidator contractValidator = new ContractValidator();
         contractValidator.checkAll(contract);
         DataLoader dataLoader = new DataLoader();
         dataLoader.loadAll();
 
+    }
+
+    @Test
+    public void testService() throws SQLException {
+        DataLoader dataLoader = new DataLoader();
+        dataLoader.loaderService();
     }
 }

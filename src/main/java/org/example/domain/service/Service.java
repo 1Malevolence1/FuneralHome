@@ -3,9 +3,9 @@ package org.example.domain.service;
 public class Service {
     private String nameService;
     private String descriptionService;
-    private String priseService;
+    private Integer priseService;
 
-    public Service(String nameService, String descriptionService, String priseService) {
+    public Service(String nameService, String descriptionService, Integer priseService) {
         this.nameService = nameService;
         this.descriptionService = descriptionService;
         this.priseService = priseService;
@@ -27,11 +27,11 @@ public class Service {
         this.descriptionService = descriptionService;
     }
 
-    public String getPriseService() {
+    public Integer getPriseService() {
         return priseService;
     }
 
-    public void setPriseService(String priseService) {
+    public void setPriseService(Integer priseService) {
         this.priseService = priseService;
     }
 }

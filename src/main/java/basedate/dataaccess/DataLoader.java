@@ -2,6 +2,7 @@ package basedate.dataaccess;
 
 import basedate.connect.BuilderConnecting;
 import basedate.dataaccess.service.LoaderService;
+import org.example.TestBuildService;
 import org.example.TestBuilderContract;
 import org.example.answer.AnswerContract;
 import org.example.answer.AnswerTheDeadMen;
@@ -16,10 +17,10 @@ import java.util.List;
 public class DataLoader {
 
 
-
+    // @TODO в будущем заменить метод получения объекта Srvice
     public void loaderService() throws SQLException {
         LoaderService loaderService = new LoaderService();
-        loaderService.loaderService(BuilderConnecting.getConnection());
+        loaderService.loaderService(BuilderConnecting.getConnection(), TestBuildService.service());
     }
 
     public void loaderTheDeadMen() throws VadilatorMenException, ValidatorDataBase, SQLException {

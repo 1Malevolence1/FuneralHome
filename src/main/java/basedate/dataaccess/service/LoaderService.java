@@ -2,6 +2,8 @@ package basedate.dataaccess.service;
 
 
 
+import org.example.domain.service.Service;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -12,12 +14,12 @@ public class LoaderService {
             " VALUES (?, ?, ?);";
 
     //@TODO добавить методы для весения данных
-    public void loaderService(Connection connection) throws SQLException {
+    public void loaderService(Connection connection, Service service) throws SQLException {
         try(PreparedStatement stmt = connection.prepareStatement(REQUEST)){
 
-            stmt.setString(1, "Строка для название услуги");
-            stmt.setString(2, "Строка для описание услуги");
-            stmt.setString(3, "Строка для цены услуги");
+            stmt.setString(1, service.getNameService());
+            stmt.setString(2, service.getDescriptionService());
+            stmt.setInt(3, service.getPriseService());
 
             stmt.executeUpdate();
         }
