@@ -29,4 +29,9 @@ class DataLoaderTest {
         DataLoader dataLoader = new DataLoader();
         dataLoader.loaderService();
     }
+
+    @Test void testLoaderStaff() throws ValidatorDataBase {
+        DataLoader dataLoader = new DataLoader();
+        dataLoader.loaderStaff();
+    }
 }

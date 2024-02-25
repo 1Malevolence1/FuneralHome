@@ -6,7 +6,7 @@ import org.example.domain.person.TheDeadMen;
 import org.example.exception.VadilatorMenException;
 import org.example.validator.Validator;
 
-public class TheDeadMenValidator implements Validator {
+public class TheDeadMenValidator implements Validator<AnswerTheDeadMen, Contract> {
 
 
     @Override
