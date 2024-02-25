@@ -8,6 +8,7 @@ import org.example.validator.service.ServiceValidator;
 
 public class AnswerService {
 
+    //  @TODO должнен будет получать объект откуда будут приходить данные
     public Service getService() throws  ValidatorService {
         ServiceValidator serviceValidator = new ServiceValidator();
          return serviceValidator.check(TestBuildService.service());

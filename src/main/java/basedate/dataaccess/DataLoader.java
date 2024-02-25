@@ -4,6 +4,7 @@ import basedate.connect.BuilderConnecting;
 import basedate.dataaccess.service.LoaderService;
 import org.example.answer.AnswerContract;
 import org.example.answer.AnswerService;
+import org.example.answer.AnswerStaff;
 import org.example.domain.contract.Contract;
 import org.example.domain.service.Service;
 import org.example.exception.VadilatorMenException;
@@ -15,10 +16,15 @@ import java.sql.SQLException;
 public class DataLoader {
 
 
-    // @TODO в будущем заменить метод получения объекта Srvice
+    public void loaderStaff() throws ValidatorDataBase {
+        AnswerStaff answerStaff = new AnswerStaff();
+        LoaderStaff loaderStaff = new LoaderStaff();
+        loaderObject(answerStaff.getStaff(), loaderStaff);
+    }
     public void loaderService() throws  ValidatorDataBase, ValidatorService {
+        AnswerService answerService = new AnswerService();
         LoaderService loaderService = new LoaderService();
-        loaderObject(getService(), loaderService);
+        loaderObject(answerService.getService(), loaderService);
     }
 
     public void loaderTheDeadMen() throws VadilatorMenException, ValidatorDataBase  {
@@ -41,7 +47,7 @@ public class DataLoader {
         }
     }
 
-    public void loadAll() throws SQLException, VadilatorMenException, ValidatorDataBase {
+    public void loadAll() throws VadilatorMenException, ValidatorDataBase {
                 loaderTheDeadMen();
                 loaderCostumer();
     }
@@ -52,10 +58,6 @@ public class DataLoader {
         return answerContract.getContract();
     }
 
-    private Service getService() throws ValidatorService {
-        AnswerService answerService = new AnswerService();
-        return answerService.getService();
-    }
 
 
    /*

@@ -4,10 +4,12 @@ import org.example.domain.service.Service;
 import org.example.exception.VadilatorMenException;
 import org.example.exception.ValidatorDataBase;
 import org.example.exception.ValidatorService;
+import org.example.validator.Validator;
 
-public class ServiceValidator {
+public class ServiceValidator implements Validator<Service, Service> {
 
-    public Service check(Service service) throws ValidatorService {
+    @Override
+    public Service check(Service service) {
 
         try {
 
