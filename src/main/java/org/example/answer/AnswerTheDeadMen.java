@@ -1,16 +1,17 @@
 package org.example.answer;
 
 import org.example.domain.contract.Contract;
+import org.example.domain.person.TheDeadMen;
 
 public class AnswerTheDeadMen {
-    private Contract contract;
 
+     private TheDeadMen contractTheDeadMen;
 
-    public Contract getContract() {
-        return contract;
+    public void setContractTheDeadMen(TheDeadMen contractTheDeadMen) {
+        this.contractTheDeadMen = contractTheDeadMen;
     }
 
-    public void setContract(Contract contract) {
-        this.contract = contract;
+    public TheDeadMen getContractTheDeadMen() {
+        return contractTheDeadMen;
     }
 }

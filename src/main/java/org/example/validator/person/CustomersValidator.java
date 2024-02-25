@@ -13,9 +13,9 @@ public class CustomersValidator implements Validator {
         EmailValidator emailValidator = new EmailValidator(contract.getCustomers().getEmail());
 
         if(fioValidator.getFIOValidator() != null && emailValidator.testEmail()){
-            AnswerCustomers answerAnswerCustomers = new AnswerCustomers();
-           answerAnswerCustomers.setContract(contract);
-            return answerAnswerCustomers;
+            AnswerCustomers answerCustomers = new AnswerCustomers();
+            answerCustomers.setContractTheDeadMen(contract.getCustomers());
+            return answerCustomers;
         }
         else return null;
     }

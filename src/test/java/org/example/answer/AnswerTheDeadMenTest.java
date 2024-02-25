@@ -24,7 +24,7 @@ class AnswerTheDeadMenTest {
         );
         contract.setTheDeadMen(theDeadMen);
         TheDeadMenValidator theDeadMenValidator = new TheDeadMenValidator();
-        assertNotNull(theDeadMenValidator.checkTheDedMen(contract));
+        assertNotNull(theDeadMenValidator.check(contract));
 
     }
 
@@ -40,7 +40,7 @@ class AnswerTheDeadMenTest {
         );
         contract.setTheDeadMen(theDeadMen);
         TheDeadMenValidator theDeadMenValidator = new TheDeadMenValidator();
-        assertNotNull(theDeadMenValidator.checkTheDedMen(contract));
+        assertNotNull(theDeadMenValidator.check(contract));
 
     }
 
@@ -56,7 +56,7 @@ class AnswerTheDeadMenTest {
         );
         contract.setTheDeadMen(theDeadMen);
         TheDeadMenValidator theDeadMenValidator = new TheDeadMenValidator();
-        assertNotNull(theDeadMenValidator.checkTheDedMen(contract));
+        assertNotNull(theDeadMenValidator.check(contract));
 
     }
     @Test
@@ -71,7 +71,7 @@ class AnswerTheDeadMenTest {
         );
         contract.setTheDeadMen(theDeadMen);
         TheDeadMenValidator theDeadMenValidator = new TheDeadMenValidator();
-        assertNotNull(theDeadMenValidator.checkTheDedMen(contract));
+        assertNotNull(theDeadMenValidator.check(contract));
 
     }
 }

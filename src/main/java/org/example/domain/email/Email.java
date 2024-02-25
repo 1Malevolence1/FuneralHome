@@ -23,4 +23,5 @@ public class Email {
     public String getExtension() {
         return extension;
     }
+
 }
