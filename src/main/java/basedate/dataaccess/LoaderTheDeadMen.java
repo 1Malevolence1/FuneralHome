@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-public class LoaderTheDeadMen  implements Loader{
+public class LoaderTheDeadMen  implements Loader<Contract>{
 
     private final String REQUEST = "INSERT INTO thedeadman(" +
             "surname, name, patronymic, date_of_birthday, date_of_death) " +

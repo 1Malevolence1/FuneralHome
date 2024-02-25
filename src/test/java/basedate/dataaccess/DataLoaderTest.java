@@ -5,6 +5,7 @@ import org.example.TestBuilderContract;
 import org.example.domain.contract.Contract;
 import org.example.exception.VadilatorMenException;
 import org.example.exception.ValidatorDataBase;
+import org.example.exception.ValidatorService;
 import org.example.validator.contract.ContractValidator;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,7 @@ class DataLoaderTest {
     }
 
     @Test
-    public void testService() throws SQLException {
+    public void testService() throws ValidatorDataBase, ValidatorService {
         DataLoader dataLoader = new DataLoader();
         dataLoader.loaderService();
     }

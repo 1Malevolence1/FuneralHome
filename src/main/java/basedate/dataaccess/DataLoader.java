@@ -2,39 +2,39 @@ package basedate.dataaccess;
 
 import basedate.connect.BuilderConnecting;
 import basedate.dataaccess.service.LoaderService;
-import org.example.TestBuildService;
-import org.example.TestBuilderContract;
 import org.example.answer.AnswerContract;
-import org.example.answer.AnswerTheDeadMen;
+import org.example.answer.AnswerService;
 import org.example.domain.contract.Contract;
+import org.example.domain.service.Service;
 import org.example.exception.VadilatorMenException;
 import org.example.exception.ValidatorDataBase;
-import org.example.validator.contract.ContractValidator;
+import org.example.exception.ValidatorService;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class DataLoader {
 
 
     // @TODO в будущем заменить метод получения объекта Srvice
-    public void loaderService() throws SQLException {
+    public void loaderService() throws  ValidatorDataBase, ValidatorService {
         LoaderService loaderService = new LoaderService();
-        loaderService.loaderService(BuilderConnecting.getConnection(), TestBuildService.service());
+        loaderObject(getService(), loaderService);
     }
 
-    public void loaderTheDeadMen() throws VadilatorMenException, ValidatorDataBase, SQLException {
-        loaderObject(getContract().getTheDeadMen());
+    public void loaderTheDeadMen() throws VadilatorMenException, ValidatorDataBase  {
+        LoaderTheDeadMen loaderTheDeadMen = new LoaderTheDeadMen();
+        loaderObject(getContract(), loaderTheDeadMen);
     }
 
-    public void loaderCostumer() throws VadilatorMenException, ValidatorDataBase, SQLException {
-        loaderObject(getContract().getCustomers());
+    public void loaderCostumer() throws VadilatorMenException, ValidatorDataBase {
+        LoaderCustomer loaderCustomer = new LoaderCustomer();
+        loaderObject(getContract(), loaderCustomer);
     }
-    private void loaderObject(Object object) throws VadilatorMenException, ValidatorDataBase, SQLException {
+    private <T, E> void loaderObject(T object, Loader<E> loader) throws ValidatorDataBase{
 
         try {
-            Loader item = (Loader) object;
-            item.loader(getContract(), BuilderConnecting.getConnection());
+           Loader item = loader;
+           item.loader( object, BuilderConnecting.getConnection());
         }
         catch (SQLException e){
             throw new ValidatorDataBase("не удалось загрузить данные: " + object.getClass().getName());
@@ -50,6 +50,11 @@ public class DataLoader {
     private Contract getContract() throws VadilatorMenException {
          AnswerContract answerContract = new AnswerContract();
         return answerContract.getContract();
+    }
+
+    private Service getService() throws ValidatorService {
+        AnswerService answerService = new AnswerService();
+        return answerService.getService();
     }
 
 

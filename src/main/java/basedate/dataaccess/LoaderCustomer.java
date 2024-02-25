@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class LoaderCustomer implements Loader{
+public class LoaderCustomer implements Loader<Contract>{
 
     private final String REQUEST = "INSERT INTO customers(" +
             " surname, name, patronymic, telephone, email)" +
