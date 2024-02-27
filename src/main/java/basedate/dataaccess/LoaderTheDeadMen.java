@@ -5,10 +5,7 @@ import org.example.exception.ManagerValidator;
 import org.example.exception.VadilatorMenException;
 import org.example.exception.ValidatorDataBase;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 
 public class LoaderTheDeadMen  implements Loader<Contract>{
@@ -19,7 +16,8 @@ public class LoaderTheDeadMen  implements Loader<Contract>{
     @Override
     public void loader(Contract contract, Connection connection) throws SQLException, ValidatorDataBase {
 
-            try(PreparedStatement stmt = connection.prepareStatement(REQUEST)) {
+            try(PreparedStatement stmt = connection.prepareStatement(REQUEST,  new String[]{"id"})) {
+
 
                 if(contract.getTheDeadMen() != null) {
 
@@ -30,6 +28,14 @@ public class LoaderTheDeadMen  implements Loader<Contract>{
                     stmt.setDate(5, Date.valueOf(contract.getTheDeadMen().getDateOfDead()));
 
                     stmt.executeUpdate();
+
+                    ResultSet gkRs = stmt.getGeneratedKeys();
+
+                    if(gkRs.next()) {
+                        contract.getTheDeadMen().setId(gkRs.getLong(1));
+                    }
+                    gkRs.close();
+
                 }
 
                 else throw new ValidatorDataBase("Ошибка занесения данных покойника");

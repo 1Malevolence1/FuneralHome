@@ -4,10 +4,7 @@ import org.example.domain.contract.Contract;
 import org.example.exception.ValidatorDataBase;
 import org.example.validator.email.MengerEmail;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class LoaderCustomer implements Loader<Contract>{
 
@@ -16,7 +13,7 @@ public class LoaderCustomer implements Loader<Contract>{
             " VALUES (?, ?, ?, ?, ?);";
     @Override
     public void loader(Contract contract, Connection connection) throws SQLException, ValidatorDataBase {
-        try(PreparedStatement stmt = connection.prepareStatement(REQUEST)) {
+        try(PreparedStatement stmt = connection.prepareStatement(REQUEST,new String[]{"id"})){
 
             if(contract.getCustomers() != null) {
 
@@ -29,6 +26,13 @@ public class LoaderCustomer implements Loader<Contract>{
                 stmt.setString(5, mengerEmail.fullEmail());
 
                 stmt.executeUpdate();
+
+                ResultSet gkRs = stmt.getGeneratedKeys();
+                if (gkRs.next()) {
+                    contract.getCustomers().setId(gkRs.getLong("id"));
+                }
+
+                gkRs.close();
             }
 
             else throw new ValidatorDataBase("Ошибка занесения данных клиента");
