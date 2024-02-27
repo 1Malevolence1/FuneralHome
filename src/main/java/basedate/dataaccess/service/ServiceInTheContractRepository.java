@@ -13,10 +13,6 @@ import java.sql.SQLException;
 
 public class ServiceInTheContractRepository implements Loader<Contract> {
 
-
-
-
-
     private final String REQUEST = "INSERT INTO servicesinthecontract(" +
             " id_contract, id_service, count_service)" +
             " VALUES (?, ?, ?);";
@@ -25,7 +21,7 @@ public class ServiceInTheContractRepository implements Loader<Contract> {
     @Override
     public void loader(Contract contract, Connection connection) throws SQLException, ValidatorDataBase {
 
-        ServiceRepository serviceRepository = new ServiceRepository();
+        ServiceManager serviceRepository = new ServiceManager();
         ServiceInTheContract serviceInTheContract = new ServiceInTheContract();
         serviceInTheContract.setServices(serviceRepository.findService(TestServicesInTheContract.getArraysService(), connection));
         serviceInTheContract.setContract(contract);

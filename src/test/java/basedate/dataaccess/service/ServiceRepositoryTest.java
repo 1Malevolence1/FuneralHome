@@ -13,7 +13,7 @@ class ServiceRepositoryTest {
     @Test
     public void getServiceBaseDate() throws SQLException {
         ServiceInTheContract serviceInTheContract = new ServiceInTheContract();
-        ServiceRepository serviceRepository = new ServiceRepository();
+        ServiceManager serviceRepository = new ServiceManager();
         serviceInTheContract.setServices(serviceRepository.findService(TestServicesInTheContract.getArraysService(), BuilderConnecting.getConnection()));
 
         for (Service item: serviceInTheContract.getServices()

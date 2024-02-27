@@ -1,21 +1,17 @@
 package basedate.dataaccess.service;
 
 import basedate.dataaccess.Loader;
-import org.example.domain.contract.Contract;
 import org.example.domain.service.Service;
 import org.example.exception.ValidatorDataBase;
 
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
-public class ServiceRepository implements Loader<Service> {
+public class ServiceManager implements Loader<Service> {
     private final String REQUEST = "INSERT INTO services(" +
             " name_services, description_services, cost_services) " +
             " VALUES (?, ?, ?);";

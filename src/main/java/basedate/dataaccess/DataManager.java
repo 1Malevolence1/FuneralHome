@@ -5,6 +5,8 @@ import basedate.dataaccess.contract.LoaderAllSumServices;
 import basedate.dataaccess.contract.LoaderContract;
 import basedate.dataaccess.service.LoaderService;
 import basedate.dataaccess.service.ServiceInTheContractRepository;
+import basedate.dataaccess.staff.LoaderWorkersInContract;
+import basedate.dataaccess.staff.StaffManager;
 import org.example.answer.AnswerContract;
 import org.example.answer.AnswerService;
 import org.example.answer.AnswerStaff;
@@ -20,7 +22,7 @@ public class DataManager {
 
     public void loaderStaff() throws ValidatorDataBase {
         AnswerStaff answerStaff = new AnswerStaff();
-        LoaderStaff loaderStaff = new LoaderStaff();
+        StaffManager loaderStaff = new StaffManager();
         loaderObject(answerStaff.getStaff(), loaderStaff);
     }
     public void loaderService() throws  ValidatorDataBase, ValidatorService {
@@ -49,6 +51,10 @@ public class DataManager {
         loaderObject(contract,serviceInTheContractRepository );
     }
 
+    private void loaderWorkersInContract(Contract contract) throws ValidatorDataBase {
+        LoaderWorkersInContract loaderWorkersInContract = new LoaderWorkersInContract();
+        loaderObject(contract, loaderWorkersInContract);
+    }
     private <T, E> void loaderObject(T object, Loader<E> loader) throws ValidatorDataBase{
 
         try {
@@ -72,6 +78,7 @@ public class DataManager {
                 loaderContract(contract);
                 loaderServiceInTheContract(contract);
                 loaderAllSumServices(contract);
+                loaderWorkersInContract(contract);
     }
 
 
