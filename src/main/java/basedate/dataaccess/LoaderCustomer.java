@@ -13,7 +13,7 @@ public class LoaderCustomer implements Loader<Contract>{
             " VALUES (?, ?, ?, ?, ?);";
     @Override
     public void loader(Contract contract, Connection connection) throws SQLException, ValidatorDataBase {
-        try(PreparedStatement stmt = connection.prepareStatement(REQUEST)) {
+        try(PreparedStatement stmt = connection.prepareStatement(REQUEST,new String[]{"id"})){
 
             if(contract.getCustomers() != null) {
 
@@ -29,8 +29,10 @@ public class LoaderCustomer implements Loader<Contract>{
 
                 ResultSet gkRs = stmt.getGeneratedKeys();
                 if (gkRs.next()) {
-                    contract.getCustomers().setId(gkRs.getLong(1));
+                    contract.getCustomers().setId(gkRs.getLong("id"));
                 }
+
+                gkRs.close();
             }
 
             else throw new ValidatorDataBase("Ошибка занесения данных клиента");

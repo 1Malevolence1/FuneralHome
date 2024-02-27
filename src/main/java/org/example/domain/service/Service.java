@@ -1,6 +1,8 @@
 package org.example.domain.service;
 
 public class Service {
+
+    private long id;
     private String nameService;
     private String descriptionService;
     private Integer priseService;
@@ -33,5 +35,13 @@ public class Service {
 
     public void setPriseService(Integer priseService) {
         this.priseService = priseService;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

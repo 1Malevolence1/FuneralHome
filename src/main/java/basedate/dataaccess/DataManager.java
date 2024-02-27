@@ -1,19 +1,21 @@
 package basedate.dataaccess;
 
 import basedate.connect.BuilderConnecting;
+import basedate.dataaccess.contract.LoaderAllSumServices;
+import basedate.dataaccess.contract.LoaderContract;
 import basedate.dataaccess.service.LoaderService;
+import basedate.dataaccess.service.ServiceInTheContractRepository;
 import org.example.answer.AnswerContract;
 import org.example.answer.AnswerService;
 import org.example.answer.AnswerStaff;
 import org.example.domain.contract.Contract;
-import org.example.domain.service.Service;
 import org.example.exception.VadilatorMenException;
 import org.example.exception.ValidatorDataBase;
 import org.example.exception.ValidatorService;
 
 import java.sql.SQLException;
 
-public class DataLoader {
+public class DataManager {
 
 
     public void loaderStaff() throws ValidatorDataBase {
@@ -27,15 +29,26 @@ public class DataLoader {
         loaderObject(answerService.getService(), loaderService);
     }
 
-    public void loaderTheDeadMen() throws VadilatorMenException, ValidatorDataBase  {
+    public void loaderTheDeadMen(Contract contract) throws VadilatorMenException, ValidatorDataBase  {
         LoaderTheDeadMen loaderTheDeadMen = new LoaderTheDeadMen();
-        loaderObject(getContract(), loaderTheDeadMen);
+        loaderObject(contract, loaderTheDeadMen);
     }
 
-    public void loaderCostumer() throws VadilatorMenException, ValidatorDataBase {
+    public void loaderCostumer(Contract contract) throws VadilatorMenException, ValidatorDataBase {
         LoaderCustomer loaderCustomer = new LoaderCustomer();
-        loaderObject(getContract(), loaderCustomer);
+        loaderObject(contract, loaderCustomer);
     }
+
+    public void loaderContract(Contract contract) throws VadilatorMenException, ValidatorDataBase {
+        LoaderContract loaderContract = new LoaderContract();
+        loaderObject(contract, loaderContract);
+    }
+
+    public void loaderServiceInTheContract(Contract contract) throws VadilatorMenException, ValidatorDataBase {
+        ServiceInTheContractRepository serviceInTheContractRepository = new ServiceInTheContractRepository();
+        loaderObject(contract,serviceInTheContractRepository );
+    }
+
     private <T, E> void loaderObject(T object, Loader<E> loader) throws ValidatorDataBase{
 
         try {
@@ -47,9 +60,23 @@ public class DataLoader {
         }
     }
 
+    private void loaderAllSumServices(Contract contract) throws ValidatorDataBase {
+        LoaderAllSumServices loaderAllSumServices = new LoaderAllSumServices();
+        loaderObject(contract, loaderAllSumServices);
+    }
+
     public void loadAll() throws VadilatorMenException, ValidatorDataBase {
-                loaderTheDeadMen();
-                loaderCostumer();
+                Contract contract = getContract();
+                loaderTheDeadMen(contract);
+                loaderCostumer(contract);
+                loaderContract(contract);
+                loaderServiceInTheContract(contract);
+                loaderAllSumServices(contract);
+    }
+
+
+    public void getService(){
+
     }
 
 
