@@ -17,7 +17,7 @@ import org.example.exception.ValidatorService;
 
 import java.sql.SQLException;
 
-public class DataManager {
+public class DataManager extends BuilderConnecting{
 
 
     public void loaderStaff() throws ValidatorDataBase {
@@ -25,8 +25,8 @@ public class DataManager {
         StaffManager loaderStaff = new StaffManager();
         loaderObject(answerStaff.getStaff(), loaderStaff);
     }
-    public void loaderService() throws  ValidatorDataBase, ValidatorService {
-        AnswerService answerService = new AnswerService();
+    public void loaderService(AnswerService answerService) throws  ValidatorDataBase, ValidatorService {
+
         LoaderService loaderService = new LoaderService();
         loaderObject(answerService.getService(), loaderService);
     }
@@ -59,7 +59,7 @@ public class DataManager {
 
         try {
            Loader item = loader;
-           item.loader( object, BuilderConnecting.getConnection());
+           item.loader( object, getConnection());
         }
         catch (SQLException e){
             throw new ValidatorDataBase("не удалось загрузить данные: " + object.getClass().getName());
@@ -81,10 +81,6 @@ public class DataManager {
                 loaderWorkersInContract(contract);
     }
 
-
-    public void getService(){
-
-    }
 
 
     private Contract getContract() throws VadilatorMenException {

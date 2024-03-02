@@ -20,7 +20,7 @@ public class LoaderWorkersInContract implements Loader<Contract> {
     public void loader(Contract contract, Connection connection) throws SQLException, ValidatorDataBase {
             StaffManager staffManager = new StaffManager();
             WorkersInContract workersInContract = new WorkersInContract();
-            workersInContract.setStaff(staffManager.findStaff(TestBuiLdlStaffArray.getArraysStaff(), BuilderConnecting.getConnection()));
+        //    workersInContract.setStaff(staffManager.findStaff(TestBuiLdlStaffArray.getArraysStaff(), BuilderConnecting.getConnection()));
 
 
         try (PreparedStatement stmt = connection.prepareStatement(REQUEST)) {

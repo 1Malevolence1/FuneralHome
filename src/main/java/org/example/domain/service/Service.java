@@ -5,7 +5,11 @@ public class Service {
     private long id;
     private String nameService;
     private String descriptionService;
-    private Integer priseService;
+    private Integer priseService = 0;
+
+
+    public Service() {
+    }
 
     public Service(String nameService, String descriptionService, Integer priseService) {
         this.nameService = nameService;
