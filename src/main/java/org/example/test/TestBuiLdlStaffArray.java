@@ -1,4 +1,4 @@
-package org.example;
+package org.example.test;
 
 public class TestBuiLdlStaffArray {
     public static String getArraysStaff(){

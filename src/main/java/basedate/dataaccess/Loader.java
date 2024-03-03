@@ -1,6 +1,6 @@
 package basedate.dataaccess;
 
-import org.example.domain.contract.Contract;
+
 import org.example.exception.ValidatorDataBase;
 
 import java.sql.Connection;
