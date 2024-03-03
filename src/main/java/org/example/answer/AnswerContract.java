@@ -8,9 +8,9 @@ import org.example.validator.contract.ContractValidator;
 public class AnswerContract {
 
 //    @TODO должнен будет получать объект откуда будут приходить данные
-    public Contract getContract() throws VadilatorMenException {
+    public Contract getContract(Contract contract) throws VadilatorMenException {
         ContractValidator contractValidator = new ContractValidator();
-        return contractValidator.checkAll(TestBuilderContract.testBuildGood());
+        return contractValidator.checkAll(contract);
 
     }
 }

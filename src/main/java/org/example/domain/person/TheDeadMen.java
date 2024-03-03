@@ -11,9 +11,6 @@ public class TheDeadMen extends Person{
         this.dateOfDead = dateOfDead;
     }
 
-    public TheDeadMen() {
-    }
-
     public void setDateOfDead(LocalDate dateOfDead) {
         this.dateOfDead = dateOfDead;
     }

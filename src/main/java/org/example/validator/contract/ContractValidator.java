@@ -1,6 +1,6 @@
 package org.example.validator.contract;
 
-import org.example.answer.AnswerContract;
+
 import org.example.answer.AnswerCustomers;
 import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
