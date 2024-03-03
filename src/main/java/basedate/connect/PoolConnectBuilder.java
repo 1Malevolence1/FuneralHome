@@ -15,19 +15,15 @@ public class PoolConnectBuilder implements ConnectBuilder{
 
 
     public PoolConnectBuilder() {
-        returnDatasurs();
-    }
-
-    private DataSource returnDatasurs(){
         try {
             Context ctx = new InitialContext();
             this.dataSource = (DataSource)ctx.lookup("java:comp/env/jdbc/FuneralHome");
-            return dataSource;
         } catch (NamingException var2) {
-
+            throw new RuntimeException(var2);
         }
-        return null;
     }
+
+
     public Connection getConnection() throws SQLException {
         return this.dataSource.getConnection();
     }

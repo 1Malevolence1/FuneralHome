@@ -1,10 +1,7 @@
 package web;
 
-import basedate.connect.BuilderConnecting;
-import basedate.connect.ConnectBuilder;
 import basedate.connect.PoolConnectBuilder;
 import basedate.dataaccess.DataManager;
-import org.example.TestBuildService;
 import org.example.answer.AnswerService;
 import org.example.domain.service.Service;
 import org.example.exception.ValidatorDataBase;
@@ -15,14 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(
         urlPatterns = {"/home"}
 )
-public class TestWeb extends HttpServlet {
+public class WEBSerice extends HttpServlet {
     private DataManager dataManager;
 
     public void init() throws ServletException {

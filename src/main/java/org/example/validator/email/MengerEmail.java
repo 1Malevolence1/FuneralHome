@@ -13,4 +13,5 @@ public class MengerEmail {
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder.append(email.getUsername()).append(email.getDomain()).append(email.getExtension()).toString();
     }
+
 }

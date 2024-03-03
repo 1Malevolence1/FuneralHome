@@ -9,9 +9,6 @@ public class BuilderConnecting implements ConnectBuilder {
 
     private ConnectBuilder connectBuilder;
 
-
-
-
     public void setConnectBuilder(ConnectBuilder connectBuilder) {
         this.connectBuilder = connectBuilder;
     }

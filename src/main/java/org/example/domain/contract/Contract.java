@@ -3,6 +3,7 @@ package org.example.domain.contract;
 import org.example.domain.person.Customer;
 
 
+import org.example.domain.person.Staff;
 import org.example.domain.person.TheDeadMen;
 import org.example.domain.service.Service;
 
@@ -18,7 +19,6 @@ public class Contract {
     private Customer customer;
 
     private TheDeadMen theDeadMen;
-    private List<Service> services;
 
     private LocalDate dateConclusionContract;
     private Double totalAmountForServices;
@@ -41,10 +41,6 @@ public class Contract {
         this.allSumServices = allSumServices;
     }
 
-    public Contract() {
-    }
-
-
 
 
     public Customer getCustomers() {
@@ -63,13 +59,7 @@ public class Contract {
         this.theDeadMen = theDeadMen;
     }
 
-    public List<Service> getServices() {
-        return services;
-    }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
-    }
 
     public LocalDate getDateConclusionContract() {
         return dateConclusionContract;

@@ -8,9 +8,15 @@ import org.example.validator.service.ServiceValidator;
 
 public class AnswerStaff {
 
+    private Staff staff;
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
     //  @TODO должнен будет получать объект откуда будут приходить данные
     public Staff getStaff()   {
         StaffValidator staffValidator = new StaffValidator();
-        return staffValidator.check(TestBuildStaffTest.getStaff());
+        return staffValidator.check(staff);
     }
 }
