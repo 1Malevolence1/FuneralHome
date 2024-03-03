@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="serviceForm">
+    <h2>Форма создания услуги</h2>
+    <form action="home" method="get" >
+        <label for="nameService">Название услуги:</label>
+        <input type="text" name="nameService" id="nameService"/><br/>
+        <label for="descriptionService">Описание:</label>
+        <input type="text" name="descriptionService" id="descriptionService"/><br/>
+        <label for="priseService">Стоимость:</label>
+        <input type="text" name="priseService" id="priseService"/><br/>
+        <input type="submit" value="GO">
+    </form>
+</div>
+
+<hr>
+
+<div id="staffForm">
+    <h2>Форма добавления сотрудника</h2>
+    <form action="staff" method="get" >
+        <label for="surname">Фамилия:</label>
+        <input type="text" name="surname" id="surname"/><br/>
+        <label for="name">Имя:</label>
+        <input type="text" name="name" id="name"/><br/>
+        <label for="patronymic">Отчество:</label>
+        <input type="text" name="patronymic" id="patronymic"/><br/>
+        <label for="dateOfBirthday">Дата рождения:</label>
+        <input type="text" name="dateOfBirthday" id="dateOfBirthday"/><br/>
+        <label for="telephone">Телефон:</label>
+        <input type="text" name="telephone" id="telephone"/><br/>
+        <label for="post">Должность:</label>
+        <input type="text" name="post" id="post"/><br/>
+        <input type="submit" value="GO">
+    </form>
+
+
+    <hr>
+
+</div>
+<div id="contractForm">
+    <h2>Форма для создания контракта</h2>
+    <form action="contract" method="get" >
+        <fieldset>
+            <legend>Покойник</legend>
+            <label for="surnameTheDeadMen">Фамилия:</label>
+            <input type="text" name="surnameTheDeadMen" id="surnameTheDeadMen"/><br/>
+            <label for="nameTheDeadMen">Имя:</label>
+            <input type="text" name="nameTheDeadMen" id="nameTheDeadMen"/><br/>
+            <label for="patronymicTheDeadMen">Отчество:</label>
+            <input type="text" name="patronymicTheDeadMen" id="patronymicTheDeadMen"/><br/>
+            <label for="dateOfBirthdayTheDeadMen">Дата рождения:</label>
+            <input type="text" name="dateOfBirthdayTheDeadMen" id="dateOfBirthdayTheDeadMen"/><br/>
+            <label for="dateOfDeadTheDeadMen">Дата смерти:</label>
+            <input type="text" name="dateOfDeadTheDeadMen" id="dateOfDeadTheDeadMen"/><br/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Клиент</legend>
+            <label for="surnameCustomer">Фамилия:</label>
+            <input type="text" name="surnameCustomer" id="surnameCustomer"/><br/>
+            <label for="nameCustomer">Имя:</label>
+            <input type="text" name="nameCustomer" id="nameCustomer"/><br/>
+            <label for="patronymicCustomer">Отчество:</label>
+            <input type="text" name="patronymicCustomer" id="patronymicCustomer"/><br/>
+            <label for="telephoneCustomer">Телефон:</label>
+            <input type="text" name="telephoneCustomer" id="telephoneCustomer"/><br/>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email"/><br/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Услуги</legend>
+            <label for="idServices">Услуги:</label>
+            <input type="text" name="services" id="idServices"/><br/>
+            <label for="idStaff">Сотрудники:</label>
+            <input type="text" name="staff" id="idStaff"/><br/>
+        </fieldset>
+
+        <input type="submit" value="GO">
+    </form>
+</div>
+</body>
+</html>
