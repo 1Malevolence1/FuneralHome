@@ -3,7 +3,7 @@ package basedate.dataaccess.service;
 
 
 import basedate.dataaccess.Loader;
-import org.example.domain.contract.Contract;
+
 import org.example.domain.service.Service;
 import org.example.exception.ValidatorDataBase;
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.test;
 
 import basedate.dataaccess.DataManager;
 import org.example.answer.AnswerService;

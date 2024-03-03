@@ -1,12 +1,10 @@
 package basedate.dataaccess;
 
 import org.example.domain.contract.Contract;
-import org.example.exception.ManagerValidator;
-import org.example.exception.VadilatorMenException;
+
 import org.example.exception.ValidatorDataBase;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class LoaderTheDeadMen  implements Loader<Contract>{
 

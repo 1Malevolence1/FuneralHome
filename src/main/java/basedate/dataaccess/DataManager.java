@@ -30,7 +30,7 @@ public class DataManager extends BuilderConnecting{
         loaderObject(answerService.getService(), loaderService);
     }
 
-    public void loaderTheDeadMen(Contract contract) throws VadilatorMenException, ValidatorDataBase  {
+    public void loaderTheDeadMen(Contract contract) throws ValidatorDataBase  {
         LoaderTheDeadMen loaderTheDeadMen = new LoaderTheDeadMen();
         loaderObject(contract, loaderTheDeadMen);
     }
