@@ -6,6 +6,8 @@ import basedate.dataaccess.service.ServiceInTheContractRepository;
 import basedate.dataaccess.service.ServiceManager;
 import basedate.dataaccess.staff.StaffManager;
 import basedate.dataaccess.staff.WorkersInContractRepository;
+import org.example.answer.AnswerContract;
+import org.example.answer.AnswerTheDeadMen;
 import org.example.domain.contract.Contract;
 import org.example.domain.email.Email;
 import org.example.domain.person.Customer;
@@ -14,6 +16,7 @@ import org.example.domain.person.TheDeadMen;
 import org.example.domain.service.Service;
 import org.example.exception.VadilatorMenException;
 import org.example.exception.ValidatorDataBase;
+import org.example.validator.email.MengerEmail;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,6 +53,7 @@ public class WEBContract extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Contract contract = new Contract();
+        AnswerContract answerContract = new AnswerContract();
 
 
         serviceInTheContractRepository.setMassive(getMassiveServices(request));
@@ -64,7 +68,13 @@ public class WEBContract extends HttpServlet {
 
 
         try {
-            dataManager.loadAll(contract, serviceInTheContractRepository, loaderWorkersInContract);
+            if(answerContract.getContract(contract) == null){
+                response.getWriter().write("Error in the data");
+            }
+            else {
+                dataManager.loadAll(answerContract.getContract(contract), serviceInTheContractRepository, loaderWorkersInContract);
+                response.getWriter().write("The contract has been successfully created");
+            }
         } catch (VadilatorMenException e) {
             throw new RuntimeException(e);
         } catch (ValidatorDataBase e) {
@@ -75,6 +85,7 @@ public class WEBContract extends HttpServlet {
     }
 
     private TheDeadMen сreationTheDeadMen(HttpServletRequest request){
+
         TheDeadMen theDeadMen = new TheDeadMen(
                 request.getParameter("surnameTheDeadMen"),
                 request.getParameter("nameTheDeadMen"),
@@ -86,13 +97,14 @@ public class WEBContract extends HttpServlet {
     }
 
     private Customer сreationCustomer(HttpServletRequest request){
-        Email email = new Email("danil36","@mail.", "ru");
+        MengerEmail mengerEmail = new MengerEmail();
+
         Customer customer = new Customer(
                 request.getParameter("surnameCustomer"),
                 request.getParameter("nameCustomer"),
                 request.getParameter("patronymicCustomer"),
                 request.getParameter("telephoneCustomer"),
-                email
+                mengerEmail.splitEmail(getStringEmail(request))
         );
         return customer;
     }
@@ -104,6 +116,10 @@ public class WEBContract extends HttpServlet {
 
     private String getMassiveStaff(HttpServletRequest request){
         return request.getParameter("staff");
+    }
+
+    private String getStringEmail(HttpServletRequest request){
+        return  request.getParameter("email");
     }
 }
 
