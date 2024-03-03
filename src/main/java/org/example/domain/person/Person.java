@@ -3,6 +3,8 @@ package org.example.domain.person;
 import java.time.LocalDate;
 
 public abstract class Person {
+
+    private long id;
     private String surname;
     private String name;
     private String patronymic;
@@ -34,6 +36,14 @@ public abstract class Person {
         this.name = name;
         this.patronymic = patronymic;
         this.telephone = telephone;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Person() {

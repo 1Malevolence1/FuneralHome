@@ -31,19 +31,19 @@ public class FIOValidator {
 
 
     public boolean checkName(String name) throws VadilatorMenException {
-        if (!name.matches(".*\\d.*")) return true;
+        if (!name.matches(".*\\d.*") && !name.isEmpty()) return true;
         else throw new VadilatorMenException("Ошибка в именни");
     }
 
 
     public boolean checkSurname(String surname) throws VadilatorMenException {
-        if (!surname.matches(".*\\d.*")) return true;
+        if (!surname.matches(".*\\d.*") && !surname.isEmpty()) return true;
         else throw new VadilatorMenException("Ошибка в фамилии");
     }
 
 
     public boolean checkPatronymic(String patronymic) throws VadilatorMenException {
-        if (!patronymic.matches(".*\\d.*")) return true;
+        if (!patronymic.matches(".*\\d.*")  && !patronymic.isEmpty() ) return true;
         else throw new VadilatorMenException("Ошибка в отчестве");
     }
 }

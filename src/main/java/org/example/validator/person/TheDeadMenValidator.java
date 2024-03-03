@@ -6,7 +6,7 @@ import org.example.domain.person.TheDeadMen;
 import org.example.exception.VadilatorMenException;
 import org.example.validator.Validator;
 
-public class TheDeadMenValidator implements Validator {
+public class TheDeadMenValidator implements Validator<AnswerTheDeadMen, Contract> {
 
 
     @Override
@@ -16,20 +16,11 @@ public class TheDeadMenValidator implements Validator {
 
         if(fioValidator.getFIOValidator() != null ){
             AnswerTheDeadMen answerTheDeadMen = new AnswerTheDeadMen();
-            answerTheDeadMen.setContract(contract);
+            answerTheDeadMen.setContractTheDeadMen(contract.getTheDeadMen());
             return answerTheDeadMen;
         }
         else return null;
     }
 
-
-    public TheDeadMen checkTheDedMen(Contract contract) throws VadilatorMenException {
-        FIOValidator fioValidator = new FIOValidator(contract.getTheDeadMen());
-
-        if(fioValidator.getFIOValidator() != null ){
-            return contract.getTheDeadMen();
-        }
-        else return null;
-    }
-    }
+}
 

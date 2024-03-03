@@ -3,6 +3,7 @@ package org.example.domain.contract;
 import org.example.domain.person.Customer;
 
 
+import org.example.domain.person.Staff;
 import org.example.domain.person.TheDeadMen;
 import org.example.domain.service.Service;
 
@@ -13,25 +14,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contract {
+
+    private long id;
     private Customer customer;
 
     private TheDeadMen theDeadMen;
-    private List<Service> services;
 
     private LocalDate dateConclusionContract;
     private Double totalAmountForServices;
 
+    private int allSumServices;
 
-    public Contract() {
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public int getAllSumServices() {
+        return allSumServices;
+    }
+
+    public void setAllSumServices(int allSumServices) {
+        this.allSumServices = allSumServices;
     }
 
 
-    public void addService(Service service){
-        if(services == null){
-            services = new ArrayList<>();
-        }
-        services.add(service);
-    }
 
     public Customer getCustomers() {
         return customer;
@@ -49,13 +59,7 @@ public class Contract {
         this.theDeadMen = theDeadMen;
     }
 
-    public List<Service> getServices() {
-        return services;
-    }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
-    }
 
     public LocalDate getDateConclusionContract() {
         return dateConclusionContract;
@@ -71,5 +75,13 @@ public class Contract {
 
     public void setTotalAmountForServices(Double totalAmountForServices) {
         this.totalAmountForServices = totalAmountForServices;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

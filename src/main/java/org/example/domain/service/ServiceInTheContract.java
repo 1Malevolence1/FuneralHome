@@ -1,31 +1,43 @@
 package org.example.domain.service;
 
 import org.example.domain.contract.Contract;
+import org.example.domain.service.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceInTheContract {
-    private Service service;
+
+    private  int costService;
     private Contract contract;
+    private List<Service> services;
 
-    private Integer countAllService;
-
-    public ServiceInTheContract(Service service, Contract contract) {
-        this.service = service;
-        this.contract = contract;
+    public int getCostService() {
+        return costService;
     }
 
-    // @TODO
-    private Integer lengthAllService(List<Service> services){
+    public void setCostService(int costService) {
+        this.costService = costService;
+    }
+
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Service> services) {
+        this.services = services;
+    }
+
+    public void add(Service service){
+        if(services == null){
+            services = new ArrayList<>();
+        }
+
+        services.add(service);
+    }
+
+    public long getCountService(){
         return services.size();
-    }
-
-    public Service getService() {
-        return service;
-    }
-
-    public void setService(Service service) {
-        this.service = service;
     }
 
     public Contract getContract() {
@@ -36,11 +48,13 @@ public class ServiceInTheContract {
         this.contract = contract;
     }
 
-    public Integer getCountAllService() {
-        return countAllService;
-    }
+    public  int getAllSumService(){
+        int sum = 0;
 
-    public void setCountAllService(Integer countAllService) {
-        this.countAllService = countAllService;
+        for (Service item: services
+        ) {
+            sum += item.getPriseService();
+        }
+        return sum;
     }
 }
